@@ -1,5 +1,20 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 19-09-2017 a las 09:03:54
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `db_bet_autoria`
@@ -23,7 +38,7 @@ CREATE TABLE `banks` (
 --
 
 INSERT INTO `banks` (`id`, `name`, `address`, `phone`) VALUES
-(1, 'Banco Pacifico','Victor Emilio Estrada 510', ' 2441681'),
+(1, 'Banco Pacifico', 'Victor Emilio Estrada 510', ' 2441681'),
 (2, 'Banco Guayaquil', 'José María Roura MZf 50 Villa 19 Guayaquil 090505', '1700800800'),
 (3, 'Banco Pichincha', ' MAPASINGUE OESTE NE AVENIDA 6TA Y CALLE 3ERA', '593981505302');
 
@@ -48,7 +63,28 @@ CREATE TABLE `bets` (
 INSERT INTO `bets` (`id`, `amount`, `users_id`, `matchs_id`, `teams_id`) VALUES
 (4, 100, 1, 1, 1),
 (5, 150, 2, 2, 2),
-(6, 80, 3, 3, 3);
+(6, 80, 3, 3, 3),
+(7, 25, 5, 1, 2),
+(8, 100, 6, 4, 7),
+(9, 200, 4, 4, 7),
+(10, 400, 4, 1, 2),
+(11, 25, 5, 1, 2),
+(12, 500, 9, 1, 1),
+(13, 200, 4, 3, 6),
+(14, 400, 4, 1, 2),
+(15, 400, 4, 1, 2),
+(16, 400, 4, 1, 2),
+(17, 400, 4, 1, 2),
+(18, 400, 4, 1, 2),
+(19, 400, 4, 1, 2),
+(20, 1, 4, 1, 2),
+(21, 200, 10, 4, 7),
+(22, 100, 10, 1, 2),
+(23, 500, 10, 3, 6),
+(24, 2000, 10, 1, 1),
+(25, 2500, 10, 5, 10),
+(26, 2000, 5, 3, 6),
+(27, 3000, 5, 5, 9);
 
 -- --------------------------------------------------------
 
@@ -119,7 +155,9 @@ INSERT INTO `creditcards` (`id`, `placeholder`, `credit_number`, `expiration_dat
 (3, 'Josty Mayorga', '4555243427875973', '02/2019', 2),
 (4, 'Mayiya Burgos', '4711632037692482', '11/2020', 2),
 (5, 'Marola Zapatier', '4505548764274130', '04/2018', 2),
-(6, 'Mariuxi Escalante', '4560207732099788', '12/2019', 2);
+(6, 'Mariuxi Escalante', '4560207732099788', '12/2019', 2),
+(8, 'lissesn s', '123', '2020/05', 2),
+(9, 'Joel Matamoros', '1727254455', '2020-05', 3);
 
 -- --------------------------------------------------------
 
@@ -181,9 +219,13 @@ CREATE TABLE `matchs` (
 --
 
 INSERT INTO `matchs` (`id`, `date`, `first_team_id`, `second_team_id`, `result`, `round`, `tournaments_id`) VALUES
-(1, '09-07-2017', 1, 2, 1, 'Semifinal', 1),
-(2, '09-07-2017', 3, 4, 1, 'Semifinal', 1),
-(3, '09-07-2017', 2, 1, 2, 'Final', 1);
+(1, '09-07-2017', 1, 2, 1, 'BO3', 1),
+(2, '09-07-2017', 3, 4, 1, 'BO3', 1),
+(3, '09-07-2017', 5, 6, 2, 'BO3', 1),
+(4, '09-07-2017', 7, 8, 2, 'BO3', 1),
+(5, '09-07-2017', 9, 10, 2, 'BO3', 1),
+(6, '09-07-2017', 11, 12, 2, 'BO3', 1),
+(7, '09-07-2017', 13, 14, 2, 'BO3', 1);
 
 -- --------------------------------------------------------
 
@@ -258,7 +300,9 @@ INSERT INTO `people` (`id`, `name`, `lastName`, `identificationCard`, `age`, `ma
 (3, 'Daniel', 'Valencia', '0984884030', 23, 'daniel-eve1@hotmail.com', 1, '0995720317', 1),
 (4, 'Paola', 'Ortiz', '0932145893', 21, 'portiz@hotmail.com', 2, '0986347951', 1),
 (5, 'Andrea', 'Jaramillo', '0981424512', 21, 'acjak@espol.edu.ec', 2, '0965313246', 1),
-(6, 'Solange', 'Montoya', '0961575433', 20, 'solecito@espol.edu.ec', 2, '0965996246', 1);
+(6, 'Solange', 'Montoya', '0961575433', 20, 'solecito@espol.edu.ec', 2, '0965996246', 1),
+(9, 'liseni', 's', '123', 1, 'as@ga.com', 1, '1', 1),
+(10, 'Joel', 'Matamoros', '09188888888', 50, 'joel@mail.com', 1, '+5939585458', 2);
 
 -- --------------------------------------------------------
 
@@ -354,18 +398,30 @@ CREATE TABLE `teams` (
   `name` varchar(255) NOT NULL,
   `captainName` varchar(255) NOT NULL,
   `sponsors_id` int(11) NOT NULL,
-  `countries_id` int(11) NOT NULL
+  `countries_id` int(11) NOT NULL,
+  `imagen` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `teams`
 --
 
-INSERT INTO `teams` (`id`, `name`, `captainName`, `sponsors_id`, `countries_id`) VALUES
-(1, 'Evil Geniuses', 'Andreas Franck \"Cr1t-\" Nielsen', 5, 1),
-(2, 'Digital Chaos', 'Kanishka \"BuLba\" Sosale', 5, 1),
-(3, 'OG', 'Sébastien \"7ckngMad\" Debs', 5, 1),
-(4, 'Team Liquid', 'Kuro \"KuroKy\" Salehi Takhasomi', 5, 1);
+INSERT INTO `teams` (`id`, `name`, `captainName`, `sponsors_id`, `countries_id`, `imagen`) VALUES
+(1, 'Evil Geniuses', 'Andreas Franck \"Cr1t-\" Nielsen', 5, 1, 'eg.png'),
+(2, 'Digital Chaos', 'Kanishka \"BuLba\" Sosale', 5, 1, 'dc.png'),
+(3, 'OG', 'Sébastien \"7ckngMad\" Debs', 5, 1, 'og.png'),
+(4, 'Team Liquid', 'Kuro \"KuroKy\" Salehi Takhasomi', 5, 1, 'tl.png'),
+(5, 'LGD Forever Young', 'Leong Fat-meng', 5, 1, 'lfy.png'),
+(6, 'Newbee', '	Zeng Hongda', 5, 1, 'newbee.png'),
+(7, 'Virtus Pro', '	Alexei Berezin', 5, 1, 'vp.png'),
+(8, 'TNC', 'Theeban Siva', 5, 1, 'tnc.png'),
+(9, 'Team Empire', 'Yaroslav Naidenov', 5, 1, 'te.png'),
+(10, 'LGD', 'Yao Zhengzheng', 5, 1, 'lgd.png'),
+(11, 'ViCi Gaming', 'Xu Zhi', 5, 1, 'vg.png'),
+(12, 'VGJ', 'Zheng Jie', 5, 1, 'vgj.png'),
+(13, 'Team Secret', 'Clement Ivanov', 5, 1, 'ts.png'),
+(14, 'Invictus Gaming', 'Fu Bin', 5, 1, 'ig.png'),
+(15, 'Vitality', 'Su Peng', 5, 1, 'vitality.png');
 
 -- --------------------------------------------------------
 
@@ -411,7 +467,26 @@ CREATE TABLE `transactions` (
 INSERT INTO `transactions` (`id`, `amount`, `wallets_id`) VALUES
 (1, 500, 1),
 (2, 500, 2),
-(3, 500, 3);
+(3, 500, 3),
+(4, 1000, 2),
+(5, 1000, 2),
+(6, 0, 2),
+(7, 5000, 2),
+(8, 0, 2),
+(9, 1000, 2),
+(10, -9000, 2),
+(11, 5000, 2),
+(12, -5000, 2),
+(13, 5000, 5),
+(14, -4000, 5),
+(15, 1000, 5),
+(16, 20000, 5),
+(17, -10000, 5),
+(18, 10000, 5),
+(19, -15, 5),
+(20, 20000, 2),
+(21, 1000, 2),
+(22, -2000, 2);
 
 -- --------------------------------------------------------
 
@@ -420,29 +495,29 @@ INSERT INTO `transactions` (`id`, `amount`, `wallets_id`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(255) NOT NULL,
   `status_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `people_id` int(11) NOT NULL,
-  `roles_id` int(11) NOT NULL
+  `roles_id` int(11) NOT NULL,
+  `foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-
-
-INSERT INTO `users` (`id`, `username`, `password`, `status_id`, `created`, `people_id`, `roles_id`) VALUES
-(1, 'rosty', '$2y$10$DhG9u7tzulaNvM1SrpH0A.9W22H98EMSDcnnsdlW78sjbLA5Tgipq', 1, '2017-07-31 23:57:14', 1, 1),
-(2, 'ksanta', '$2y$10$DhG9u7tzulaNvM1SrpH0A.9W22H98EMSDcnnsdlW78sjbLA5Tgipq', 1, '2017-07-31 23:57:14', 2, 1),
-(3, 'champion', '$2y$10$DhG9u7tzulaNvM1SrpH0A.9W22H98EMSDcnnsdlW78sjbLA5Tgipq', 1, '2017-07-31 23:57:14', 3, 1),
-(4, 'paola', '$2y$10$DhG9u7tzulaNvM1SrpH0A.9W22H98EMSDcnnsdlW78sjbLA5Tgipq', 1, '2017-07-31 23:57:14', 4, 2),
-(5, 'andrea', '$2y$10$DhG9u7tzulaNvM1SrpH0A.9W22H98EMSDcnnsdlW78sjbLA5Tgipq', 1, '2017-07-31 23:57:14', 5, 2),
-(6, 'solange', '$2y$10$DhG9u7tzulaNvM1SrpH0A.9W22H98EMSDcnnsdlW78sjbLA5Tgipq', 1, '2017-07-31 23:57:14', 6, 2);
-
+INSERT INTO `users` (`id`, `username`, `password`, `status_id`, `created`, `people_id`, `roles_id`, `foto`) VALUES
+(1, 'rosty', '$2y$10$DhG9u7tzulaNvM1SrpH0A.9W22H98EMSDcnnsdlW78sjbLA5Tgipq', 1, '2017-07-31 23:57:14', 1, 1, 'default.png'),
+(2, 'ksanta', '$2y$10$DhG9u7tzulaNvM1SrpH0A.9W22H98EMSDcnnsdlW78sjbLA5Tgipq', 1, '2017-07-31 23:57:14', 2, 1, 'defonix.jpg'),
+(3, 'champion', '$2y$10$DhG9u7tzulaNvM1SrpH0A.9W22H98EMSDcnnsdlW78sjbLA5Tgipq', 1, '2017-07-31 23:57:14', 3, 1, 'default.png'),
+(4, 'paola', '$2y$10$DhG9u7tzulaNvM1SrpH0A.9W22H98EMSDcnnsdlW78sjbLA5Tgipq', 1, '2017-07-31 23:57:14', 4, 2, 'default.png'),
+(5, 'andrea', '$2y$10$DhG9u7tzulaNvM1SrpH0A.9W22H98EMSDcnnsdlW78sjbLA5Tgipq', 1, '2017-07-31 23:57:14', 5, 2, 'default.png'),
+(6, 'solange', '$2y$10$DhG9u7tzulaNvM1SrpH0A.9W22H98EMSDcnnsdlW78sjbLA5Tgipq', 1, '2017-07-31 23:57:14', 6, 2, 'defaault.png'),
+(9, 'lis', '$2y$10$jj9xzhJpeo37gnJ8jbHKQ.njfv1emkcdzd61lGSP/PmPwHmE4Nfw2', 1, '2017-09-14 14:47:48', 9, 2, 'default.png'),
+(10, 'jorel', '$2y$10$RiHPia7vwD0JhSsINvI.ouXJMek3FhhXSPRMjOVwap1jCOVp6elJ.', 1, '2017-09-19 00:54:15', 10, 2, 'default.png');
 
 -- --------------------------------------------------------
 
@@ -462,9 +537,11 @@ CREATE TABLE `wallets` (
 --
 
 INSERT INTO `wallets` (`id`, `users_id`, `amount`, `credit_card_id`) VALUES
-(1, 4, 100, 4),
-(2, 5, 100, 5),
-(3, 6, 100, 6);
+(1, 4, 3799, 4),
+(2, 5, 14000, 5),
+(3, 6, 0, 6),
+(4, 9, 0, 8),
+(5, 10, 17185, 9);
 
 --
 -- Índices para tablas volcadas
@@ -503,7 +580,8 @@ ALTER TABLE `countries`
 -- Indices de la tabla `creditcards`
 --
 ALTER TABLE `creditcards`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `banks_credit card` (`banks_id`);
 
 --
 -- Indices de la tabla `genders`
@@ -599,6 +677,7 @@ ALTER TABLE `transactions`
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `status_id_users` (`status_id`),
   ADD KEY `people_id_users` (`people_id`),
   ADD KEY `roles_id_users` (`roles_id`);
@@ -624,12 +703,12 @@ ALTER TABLE `banks`
 -- AUTO_INCREMENT de la tabla `bets`
 --
 ALTER TABLE `bets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT de la tabla `channels`
 --
 ALTER TABLE `channels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `countries`
 --
@@ -639,7 +718,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT de la tabla `creditcards`
 --
 ALTER TABLE `creditcards`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `genders`
 --
@@ -654,12 +733,12 @@ ALTER TABLE `languages`
 -- AUTO_INCREMENT de la tabla `matchs`
 --
 ALTER TABLE `matchs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `optionsxrol`
 --
@@ -669,12 +748,12 @@ ALTER TABLE `optionsxrol`
 -- AUTO_INCREMENT de la tabla `people`
 --
 ALTER TABLE `people`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `recharges`
 --
 ALTER TABLE `recharges`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `roles`
 --
@@ -694,7 +773,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT de la tabla `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `tournaments`
 --
@@ -704,17 +783,17 @@ ALTER TABLE `tournaments`
 -- AUTO_INCREMENT de la tabla `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `wallets`
 --
 ALTER TABLE `wallets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Restricciones para tablas volcadas
 --
@@ -733,6 +812,12 @@ ALTER TABLE `bets`
 ALTER TABLE `channels`
   ADD CONSTRAINT `languages_channels` FOREIGN KEY (`languages_id`) REFERENCES `languages` (`id`),
   ADD CONSTRAINT `matchs_channels` FOREIGN KEY (`matchs_id`) REFERENCES `matchs` (`id`);
+
+--
+-- Filtros para la tabla `creditcards`
+--
+ALTER TABLE `creditcards`
+  ADD CONSTRAINT `banks_credit card` FOREIGN KEY (`banks_id`) REFERENCES `banks` (`id`);
 
 --
 -- Filtros para la tabla `matchs`
@@ -796,5 +881,6 @@ ALTER TABLE `wallets`
   ADD CONSTRAINT `credit_card_id_wallets` FOREIGN KEY (`credit_card_id`) REFERENCES `creditcards` (`id`),
   ADD CONSTRAINT `users_id_wallets` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`);
 
-ALTER TABLE `creditcards`
-  ADD CONSTRAINT `banks_credit card` FOREIGN KEY (`banks_id`) REFERENCES `banks` (`id`);
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
