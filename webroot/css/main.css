@@ -1,0 +1,250 @@
+.panel {
+    background-color: #424242;
+    padding: 10px;
+    color: white;
+    font-size: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: limegreen;
+}
+
+tr:hover{
+    background-color: #ccc;
+}
+
+.cuerpo-formulario {
+    background-color: #BDBDBD;
+    padding: 20px;
+    margin: -15px;
+    margin-top: -23px;
+}
+
+.pie-pagina {
+    background-color: #222;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+.match-time{
+    padding-left: 50px;
+}
+
+.match {
+    border-radius: 15px;
+    background-color: #eee;
+    width: 100%;
+    height: 50%;
+    float: left;
+    text-align:top;
+    margin-left: 30px;
+}
+.match:hover {
+    background-color: #ccc
+}
+
+.teamtext {
+    text-align: center
+}
+
+.teamImg1 {
+    float: right;
+    width: 60px;
+    border-radius: 2px;
+}
+.teamImg2 {
+    float: left;
+    width: 60px;
+    border-radius: 2px;
+}
+
+
+.teamSpace {
+    width: 45%;
+    float: left;
+    text-align: right
+}
+
+.vs{
+    width: 10%;
+    float: left;
+    text-align: center;
+    margin-top: 0.6em
+}
+
+.recientes{
+    margin-top: 40px;
+    width: 75%;
+}
+
+.filaReciente{
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+.recienteTeam1 {
+     float: right;
+    width: 40px;
+    border-radius: 2px;
+}
+.recienteTeam2 {
+     float: left;
+    width: 40px;
+    border-radius: 2px;
+
+}
+
+.estadisticas{
+    margin-top: 40px;
+    width: 75%;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.coins {
+    margin-left: 85%;
+    text-align: right;
+    font-size: 24px;
+}
+
+.imgcoin{
+    width: 25px;
+    float: right;
+}
+.historial tr:first-child{
+    background: #333;
+    color:white;
+
+}
+.eleccion_equipo{
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+.historial tr td,th{
+       padding: 1em;
+}
+.partida_{
+    width: 100%;
+    text-align: center;
+    background: #333;
+
+}
+.partida_ h3, .partida_ span, .partida_ label,.partida_ h1, .partida_ h2{
+    color: white !important;
+}
+.partida_, .equipo_1, .equipo_2, .datos_apuesta, .equipos, .datos{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+}
+.equipos{
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+}
+.equipo_1, .equipo_2{
+    padding: 5em;
+    background: #666;
+    height: 100%;
+}
+.vs_{
+    position: absolute;
+    left: calc(50% - 25px);
+    top: calc(50% - 25px);
+    background-color: #619c41;
+    width: 50px;
+    color: white !important;
+    text-align: center;
+    font-size: 2em;
+    line-height: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.equipo_1 img, .equipo_2 img{
+    width: 70px;
+    margin: 0 auto;
+}
+
+.equipo_:hover{
+    text-decoration: none;
+}
+
+.equipo_:hover .equipo_1, .equipo_:hover .equipo_2{
+
+    background-color: #619c41;
+}
+.fondo_equipo_seleccionado{
+    background-color: #619c41 !important;
+}
+#monedas{
+    margin-top: 1em;
+}
+.datos{
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+.datos_equipo_1, .datos_equipo_2{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+}
+.titulo_{
+    text-align: center;
+}
+.btn_apostar{
+    background: #619c41;
+    color: white !important;
+    margin: 1em;
+    padding: 1em 2.5em;
+    border: none;
+    font-size: 2em;
+    text-align: center;
+
+}
+.btn_apostar:hover{
+    background: #ddd;
+    color: #333 !important;
+    }
+.equipo_{
+    width: 50%;
+    }
+.centrar{
+    width: 800px;
+    margin: 0 auto;
+}
+.monedas_usuario{
+
+    position: fixed;
+    right: 50px;
+    top: 90px;
+    font-size: 2em;
+
+}
+.monedas_usuario  img{
+    margin-left: .1em;
+    margin-top: -.1em;
+}
+#mensaje{
+    background: #e81e62;
+    font-size: 1.5em;
+    color: white !important;
+}
+.hidden{
+    display: none;
+}

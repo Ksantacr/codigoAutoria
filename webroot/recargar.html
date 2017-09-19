@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bet it Now - Recargar</title>
+    <link rel="icon" href="img/icono.ico">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <div class="navbar-header">
+                <a href="./users/home"><img src="img/logoBiN.png" alt="logo" href="#" width="150px" height="60px"></a>
+            </div>
+
+            <ul class="nav navbar-nav">
+                <li><a href="./users/home">Inicio</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="#">Mis apuestas</a></li>
+                <li><a href="historial_apuestas.html">Historial</a></li>
+                <li class="active"><a href="#">Recargar</a></li>
+                <li><a href="retirar.html">Retirar</a></li>
+            </ul>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right">
+                    <a href="./users/logout">
+                    <button type="button" class="btn btn-xs btn-link">Logout
+                    </button></a>   
+                </form>
+
+            </div>
+            <!--/.navbar-collapse -->
+        </nav>
+        
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1>-</h1>
+                <div class="row panel">
+                    <div class="col-xs-6">
+                        <a href="recargar.html">Recargar</a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a href="retirar.html" id="register-form-link">Retirar</a>
+                    </div>
+                </div>
+
+                <form class="cuerpo-formulario">
+                    <div class="form-group">
+                        <div>
+                            
+                            <img class="imgcoin" src="img/coin.png">
+                            <label class="coins">5000</label>
+                        </div>
+                        
+                        <div>
+                            <label>Valor a Recargar</label>
+                            <input type="text" class="form-control"placeholder="$0.00">
+                        </div>
+                        
+                    </div>
+                    <button type="submit" class="btn btn-lg btn-success">Aceptar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
